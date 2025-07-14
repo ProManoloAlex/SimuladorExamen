@@ -672,22 +672,6 @@ const preguntas = [
   }
 ];
 
-
-
-// ---------------------------- TEMPORIZADOR ----------------------------
-let tiempoRestante = 600;
-const timerElemento = document.getElementById("timer");
-const timerIntervalo = setInterval(() => {
-  const min = Math.floor(tiempoRestante / 60);
-  const seg = tiempoRestante % 60;
-  timerElemento.textContent = `${min}:${seg.toString().padStart(2, '0')}`;
-  if (tiempoRestante <= 0) {
-    clearInterval(timerIntervalo);
-    mostrarResultados(true);
-  }
-  tiempoRestante--;
-}, 1000);
-
 // ---------------------------- FUNCIONES ----------------------------
 
 function renderPagina() {
@@ -742,7 +726,7 @@ function borrarRespuesta(indicePregunta) {
 
 
 function mostrarResultados(tiempoAgotado = false) {
-  clearInterval(timerIntervalo);
+
   const mainContentCol = document.querySelector(".col-md-9");
   const sideNavCol = document.querySelector(".col-md-3");
 
@@ -813,7 +797,6 @@ function mostrarResultados(tiempoAgotado = false) {
 
   // Hide side navigation and timer elements after showing results
   if (sideNavCol) sideNavCol.style.display = "none";
-  if (timerElemento) timerElemento.style.display = "none";
 }
 
 function reiniciar() {
@@ -823,7 +806,7 @@ function reiniciar() {
 
 function regresarAExamenes() {
     // IMPORTANTE: Cambia 'index.html' por la URL real de tu página de selección de exámenes.
-    window.location.href = '../../Index.php'; // Redirige a la página de selección de exámenes  
+    window.location.href = '../../index.php'; // Redirige a la página de selección de exámenes  
 }
 
 
